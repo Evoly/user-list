@@ -1,0 +1,4 @@
+node_modules
+dist
+src/scripts/libs
+webpack/del_webpack.config.js

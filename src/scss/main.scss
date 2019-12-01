@@ -1,0 +1,33 @@
+@import 'work/variables';
+// @import "node_modules/bootstrap/scss/bootstrap";
+// @import "node_modules/bootstrap-select-v4/sass/bootstrap-select";
+@import 'work/_mixins.scss';
+@import 'work/_fonts.scss';
+@import 'work/_text-styles.scss';
+// @import 'work/button';
+// @import 'work/perfect-scrollbar';
+// @import 'work/jquery.fancybox';
+// @import 'work/nouislider';
+// @import 'work/jquery.countdown';
+//@import "../blocks/**/*";
+.flex {
+    display: flex;
+}
+
+body {
+    color: $color-text;
+    line-height: 1.2;
+    @include text;
+}
+
+img {
+    max-width: 100%;
+}
+
+.icon {
+    display: block;
+}
+
+.icon-inline {
+    display: inline-block;
+}
