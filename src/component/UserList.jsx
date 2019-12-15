@@ -21,7 +21,6 @@ class UserList extends React.Component {
 
   async fetchData() {
     const response = await axios.get(urlUsers);
-    //  console.log('response', response);
     try {
       this.setState({
         users: response.data,
@@ -34,7 +33,6 @@ class UserList extends React.Component {
 
   render() {
     const { isLoading, users } = this.state;
-
     let content = [];
 
     if (!isLoading) {

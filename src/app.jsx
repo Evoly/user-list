@@ -8,23 +8,18 @@ import PostsList from './component/PostsList';
 import CommentsList from './component/CommentsList';
 import Header from './component/Header';
 
-const Comments = (props) => {
-  return (
-    <CommentsList
-      id={props.location.postId}
-      name={props.location.name}
-      userId={props.location.userId}
-      postTitle={props.location.postTitle}
-    />
-  );
-};
+const Comments = (props) => (
+  <CommentsList
+    id={props.location.postId}
+    name={props.location.name}
+    userId={props.location.userId}
+    postTitle={props.location.postTitle}
+  />
+);
 
-
-const Posts = (props) => {
-  return (
-    <PostsList id={props.location.userId} name={props.location.userName} />
-  );
-};
+const Posts = (props) => (
+  <PostsList id={props.location.userId} name={props.location.userName} />
+);
 
 const Home = () => (
   <UserList />
@@ -44,7 +39,7 @@ const App = () => (
   <BrowserRouter>
     <div>
       <Header />
-      <Main />
+      <Main id="0" />
     </div>
   </BrowserRouter>
 );

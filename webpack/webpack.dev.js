@@ -9,10 +9,9 @@ module.exports = merge(common, {
   devServer: {
     overlay: true,
     hot: true,
-    contentBase: './src',
+    contentBase: './dist',
     writeToDisk: true,
     watchContentBase: true,
-    port: 3000,
   },
   plugins: [
     new CopyWebpackPlugin([

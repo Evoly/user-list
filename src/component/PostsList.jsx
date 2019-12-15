@@ -21,12 +21,8 @@ class PostsList extends React.Component {
 
   async fetchData() {
     const { id } = this.props;
-    console.log('fetchData id', id);
     const urlPosts = id ? `${url}?userId=${id}` : url;
-    console.log('urlPosts', urlPosts);
     const response = await axios.get(urlPosts);
-    console.log('response', response);
-
     try {
       this.setState({
         posts: response.data,
@@ -52,7 +48,7 @@ class PostsList extends React.Component {
         title, body, id, userId,
       }) => (
         <React.Fragment key={id}>
-          <li className="content__item">
+          <div className="content__item">
             <Link
               to={{
                 pathname: '/comments',
@@ -65,7 +61,7 @@ class PostsList extends React.Component {
             >
               {title}
             </Link>
-          </li>
+          </div>
           <p>{body}</p>
         </React.Fragment>
       ));
@@ -75,11 +71,7 @@ class PostsList extends React.Component {
 
     return (
       <>
-        <h1>
-          {' '}
-          {title}
-          {' '}
-        </h1>
+        <h1> {title} </h1>
         <div className="content">
           {content}
           <Link to="/" className="btn">Back</Link>

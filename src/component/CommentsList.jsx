@@ -24,7 +24,6 @@ class ComentsList extends React.Component {
     const { id } = this.props;
     const urlPosts = id ? `${url}?postId=${id}` : url;
     const response = await axios.get(urlPosts);
-    console.log('response', response);
     try {
       this.setState({
         comments: response.data,
