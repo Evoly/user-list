@@ -9,9 +9,6 @@ import CommentsList from './component/CommentsList';
 import Header from './component/Header';
 
 const Comments = (props) => {
-  console.log(props);
-  console.log('Comments props', props);
-  console.log('Comments userId', props.location.userId);
   return (
     <CommentsList
       id={props.location.postId}
@@ -24,8 +21,6 @@ const Comments = (props) => {
 
 
 const Posts = (props) => {
-  console.log(props);
-  console.log('Posts userId', props.location.userId);
   return (
     <PostsList id={props.location.userId} name={props.location.userName} />
   );
@@ -49,7 +44,7 @@ const App = () => (
   <BrowserRouter>
     <div>
       <Header />
-      <Main id="0" />
+      <Main />
     </div>
   </BrowserRouter>
 );

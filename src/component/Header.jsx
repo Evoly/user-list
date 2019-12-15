@@ -5,7 +5,7 @@ const Header = () => (
   <header className="header">
     <div className="container">
       <nav className="nav flex">
-        <Link to="/" className="nav__link">Home</Link>
+        <Link to="/" className="nav__link" title="Home">Home</Link>
         <Link
           to={{
             pathname: '/posts',
@@ -13,6 +13,7 @@ const Header = () => (
             userName: null,
           }}
           className="nav__link"
+          title="All posts"
         >
           Posts
         </Link>
@@ -25,6 +26,7 @@ const Header = () => (
             postTitle: null,
           }}
           className="nav__link"
+          title="All comments"
         >
           Comments
         </Link>
@@ -33,4 +35,4 @@ const Header = () => (
   </header>
 );
 
-export default withRouter(Header);
+export default Header;

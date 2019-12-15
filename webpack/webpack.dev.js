@@ -12,6 +12,7 @@ module.exports = merge(common, {
     contentBase: './src',
     writeToDisk: true,
     watchContentBase: true,
+    port: 3000,
   },
   plugins: [
     new CopyWebpackPlugin([
