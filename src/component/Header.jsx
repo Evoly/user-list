@@ -16,7 +16,18 @@ const Header = () => (
         >
           Posts
         </Link>
-        <Link to="/comments" className="nav__link">Comments</Link>
+        <Link
+          to={{
+            pathname: '/comments',
+            postId: null,
+            userId: null,
+            name: null,
+            postTitle: null,
+          }}
+          className="nav__link"
+        >
+          Comments
+        </Link>
       </nav>
     </div>
   </header>
