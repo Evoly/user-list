@@ -1,91 +1,41 @@
-// bootstrap variables:
-$font-size-base: .94rem;
-$font-family-base: 'Roboto';
-$h1-font-size: 1.88rem;
-$btn-font-size: 11px;
-$headings-font-weight: 700;
-$headings-color: #444;
 
-$link-color: #2d7eb7;
-$input-color: #999;
-$link-hover-color: #ff4b10;
-$link-hover-decoration: none;
-$breadcrumb-bg: transparent;
-$modal-content-border-color: #c3cbd7;
-$brand-primary: #2e7fb8;
-$nav-tabs-link-active-border-color: #b8c3d0;
-$nav-tabs-border-color: #b8c3d0;
-$nav-pills-link-active-bg: #ff4b10;
+// grid
 
-$modal-content-border-radius: 0;
-$dropdown-border-radius: 0;
-$dropdown-spacer: 0;
-$dropdown-padding-y: 0;
-
-$breadcrumb-padding-y: 35px;
-$modal-sm: 100%;
-$modal-dialog-margin: auto;
-
-$table-dark-bg: #37475d;
-$table-dark-border-color: #37475d;
-$table-border-color: #b7c3cf;
-
-$container-max-widths: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$container-max-widths: map-merge(
-  (
-    sm: 540px,
-    md: 720px,
-    lg: 960px,
-    xl: 1200px
-  ),
-  $container-max-widths
+$container-width: 1200px; // Максимальная ширина контейнера контента
+$container-padding: 30px; // Отступы слева и справа у контейнера
+$grid-container-width: 100%; // Ширина контейнера сетки
+$grid-cols: 12; // Количество колонок в сетке
+$grid-gap: 20px; // Расстояние между колонками
+$grid-gap-vertical: 20px; // Расстояние между строками в сетке
+$grid-col-width: $grid-container-width/$grid-cols; // Ширина одной колонки
+$breakpoints: (
+  'xl': 1440px,
+  'lg': 1200px,
+  'md': 1024px,
+  'sm': 768px,
+  'bsm': 680px,
+  'msm': 560px,
+  'xsm': 480px,
+  'xs': 320px
 );
 
 
+//colors
 
-//custom
-$color-text: #666;
-$color-basic: #fff;
-$color-input: #fff;
-$color-main: #fff;
-$color-border: #fff;
+$color-basic: #666;
+$blue: #E6EEF2;
+$dark-blue: darken($color: #E6EEF2, $amount: 10%);
 
-$color-red: #ff4d09;
-$color-red-vermilion: #ff4d0c;
-$color-red-vermilion-1: #FF4D08;
-$color-logo-red: #ff4b10;
+$link-hover: #a1afb7;
+$btn-background: #879094;
+$btn-background-hover: darken($color: #879094, $amount: 5%);
 
-$color-orange-dust: #ff9f08;
-$color-danger: #ef504a;
-$color-pink: #ffe8e8;
 
-$color-jelly-bean: #2d7eb7;
-$color-dark-blue: #37485e;
-$color-blue: #4e9fda;
-$color-fiord: #475971;
-$color-fiord1: #42566b;
-$color-bluewood: #37475d;
-$color-another-blue: #2f7fb9;
-$color-grey-blue: #8394ab;
-$color-curious-blue: #3594d7;
-$color-blue-bayoux: #53677d;
-$color-blue-bayoux-light: #596d83;
-$color-green: #65b82e;
-$color-forest-green: #2db730;
 
-$color-perano: #abcef0;
-$color-grey: #b6c1ce;
-$color-grey-light: #b8c3d0;
-$color-athens-gray1: #eff1f5;
-$color-athens-gray2:#f0f1f6;
-$color-darkgrey: #444;
-$color-logo-dot: #c3cbd7;
-$color-heather: #b7c3cf;
-$color-heather1: #b7c1d2;
-$color-grey-thin: #999;
-$color-mystic: #e8ecf1;
 
 // Transitions
-// ##########
 $ease-main: .3s ease;
+
+
+// Fonts
+$font-main: Arial, sans-serif;

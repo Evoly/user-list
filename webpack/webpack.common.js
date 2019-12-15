@@ -1,9 +1,5 @@
-//  const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
-
-// const isDev = process.env.NODE_ENV === 'development';
-// const webpackMode = process.env.NODE_ENV;
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,23 +10,14 @@ const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const pagesDir = path.resolve(__dirname, '../src/pages/');
 const pages = fs.readdirSync(pagesDir).filter((fileName) => fileName.endsWith('.pug'));
 
-// const PATHS = {
-//   src: path.join(__dirname, './src'),
-//   dist: path.join(__dirname, './dist'),
-//   assets: 'assets/'
-// }
-//
-// const pagesDir = PATHS.src
-// const PAGES = fs.readdirSync(pagesDir).filter(fileName => fileName.endsWith('.html'))
-
-
 const config = {
-  entry: path.resolve('./src/scripts/app.js'),
+  entry: [path.resolve('./src/index.js'), 'react-hot-loader/patch', './src'],
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'scripts/[name].min.js',
     publicPath: '/',
   },
+  resolve: { extensions: ['.js', '.jsx'] },
   plugins: [
     ...pages.map((page) => new HtmlWebpackPlugin({
       template: `${pagesDir}/${page}`,
@@ -41,7 +28,6 @@ const config = {
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
-    new UnminifiedWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: `${path.resolve('./src/static')}`, to: `${path.resolve(__dirname, '../dist')}` },
       { from: `${path.resolve('./src/scripts/libs')}`, to: `${path.resolve(__dirname, '../dist/scripts/libs')}` },
@@ -72,13 +58,16 @@ const config = {
       ],
     },
     {
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env'],
-          plugins: ['@babel/plugin-transform-runtime'],
+          presets: ['@babel/preset-env',
+            '@babel/preset-react'],
+          plugins: ['@babel/plugin-transform-runtime',
+            '@babel/plugin-proposal-class-properties',
+            'react-hot-loader/babel'],
           cacheDirectory: true,
         },
       },

@@ -7,8 +7,11 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    writeToDisk: true,
     overlay: true,
+    hot: true,
+    contentBase: './src',
+    writeToDisk: true,
+    watchContentBase: true,
   },
   plugins: [
     new CopyWebpackPlugin([
