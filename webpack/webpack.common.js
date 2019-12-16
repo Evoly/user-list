@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+// const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 const pagesDir = path.resolve(__dirname, '../src/pages/');
 const pages = fs.readdirSync(pagesDir).filter((fileName) => fileName.endsWith('.pug'));

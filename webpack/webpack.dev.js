@@ -12,6 +12,8 @@ module.exports = merge(common, {
     contentBase: './dist',
     writeToDisk: true,
     watchContentBase: true,
+    port: 3000,
+    historyApiFallback: true,
   },
   plugins: [
     new CopyWebpackPlugin([
