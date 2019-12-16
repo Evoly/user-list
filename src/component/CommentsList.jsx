@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import axios from 'axios';
 
@@ -36,7 +37,6 @@ class ComentsList extends React.Component {
 
   render() {
     const { name, userId, postTitle } = this.props;
-    console.log('this.props', this.props);
 
     const title = postTitle ? (
       <h1> Comments on <span> &quot;{postTitle}&quot;</span> </h1>) : <h1> Comment list </h1>;
@@ -78,5 +78,20 @@ class ComentsList extends React.Component {
     );
   }
 }
+
+ComentsList.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  userId: PropTypes.string,
+  postTitle: PropTypes.string,
+};
+
+ComentsList.defaultProps = {
+  id: null,
+  name: '',
+  userId: null,
+  postTitle: '',
+};
+
 
 export default withRouter(ComentsList);

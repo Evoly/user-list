@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const url = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -80,5 +80,15 @@ class PostsList extends React.Component {
     );
   }
 }
+
+PostsList.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+};
+
+PostsList.defaultProps = {
+  id: null,
+  name: '',
+};
 
 export default withRouter(PostsList);
