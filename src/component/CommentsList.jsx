@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const url = 'https://jsonplaceholder.typicode.com/comments';
 
-class ComentsList extends React.Component {
+class ComentsList extends Component {
   constructor(props) {
     super(props);
     this.state = {

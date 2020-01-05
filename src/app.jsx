@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
 
 import {
   BrowserRouter, Switch, Route,
@@ -10,6 +14,38 @@ import PostsList from './component/PostsList';
 import CommentsList from './component/CommentsList';
 import Header from './component/Header';
 // import NotFound from './component/NotFound';
+
+const initialState = {
+  users: [],
+  isLoading: false,
+  error: null,
+};
+
+
+function reducer(state = initialState, action) {
+  console.log('action', action);
+  switch (action.type) {
+    case 'REQUEST_USER':
+      console.log('state', state);
+      return { ...state, isLoading: true, error: null };
+    case 'REQUEST_USER_SUCCESS':
+      return { ...state, isLoading: false, users: action.payload.users };
+    case 'REQUEST_USER_FAILURE':
+      return {
+        ...state,
+        isLoading: false,
+        users: [],
+        error: action.payload.error,
+      };
+    default:
+      return state;
+  }
+}
+
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk),
+);
 
 const Comments = (props) => {
   const { location } = props;
@@ -54,12 +90,14 @@ const Main = () => (
 );
 
 const App = () => (
-  <BrowserRouter>
-    <div>
-      <Header />
-      <Main id="0" />
-    </div>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <div>
+        <Header />
+        <Main id="0" />
+      </div>
+    </BrowserRouter>
+  </Provider>
 );
 
 export default App;

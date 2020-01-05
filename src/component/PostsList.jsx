@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const url = 'https://jsonplaceholder.typicode.com/posts';
 
-class PostsList extends React.Component {
+class PostsList extends Component {
   constructor(props) {
     super(props);
     this.state = {

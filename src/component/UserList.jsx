@@ -1,38 +1,52 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import axios from 'axios';
+import requestUsers, { fetchUsers } from '../actions';
 
-const urlUsers = 'https://jsonplaceholder.typicode.com/users';
+// const urlUsers = 'https://jsonplaceholder.typicode.com/users';
 
-class UserList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      users: [],
-      error: null,
-    };
-  }
+const mapStateToProps = (state) => {
+  const props = {
+    isLoading: state.isLoading,
+    users: state.users,
+    error: state.error,
+  };
+  return props;
+};
+
+class UserList extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     isLoading: true,
+  //     users: [],
+  //     error: null,
+  //   };
+  // }
 
   componentDidMount() {
-    this.fetchData();
+    this.props.dispatch(fetchUsers());
   }
 
-  async fetchData() {
-    const response = await axios.get(urlUsers);
-    try {
-      this.setState({
-        users: response.data,
-        isLoading: false,
-      });
-    } catch (error) {
-      this.setState({ error, isLoading: false });
-    }
-  }
+  // componentDidMount() {
+  //   this.fetchData();
+  // }
+
+  // async fetchData() {
+  //   const response = await axios.get(urlUsers);
+  //   try {
+  //     this.setState({
+  //       users: response.data,
+  //       isLoading: false,
+  //     });
+  //   } catch (error) {
+  //     this.setState({ error, isLoading: false });
+  //   }
+  // }
 
   render() {
-    const { isLoading, users } = this.state;
+    const { isLoading, users } = this.props;
     let content = [];
 
     if (!isLoading) {
@@ -68,4 +82,4 @@ class UserList extends React.Component {
   }
 }
 
-export default withRouter(UserList);
+export default connect(mapStateToProps)(UserList);
